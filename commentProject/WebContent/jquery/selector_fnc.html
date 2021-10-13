@@ -9,8 +9,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-            $('button').click(findFnc);
+            $('button').eq(0).click(findFnc); //요소 찾기
+            $('button').eq(1).click(removeFnc) //체크된 요소를 삭제
+                
         });
+
+        function removeFnc(){
+            let checkVal = $('tbody>tr>td>input');
+            $(checkVal).filter(':checked').parent().parent().remove();
+        }
 
         function findFnc(){
             let trVal = $('tbody>tr');
@@ -52,6 +59,7 @@
 <body>
     <div id = "show"></div>
     <button>클릭</button>
+    <button>삭제</button>
         <script>
             fetch('coffee.json')
                 .then(x => x.json())

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery/mod.html</title>
+    <script src = "./jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('#show').html('<b>Hi Aiki</b>');  // innerHTML
+           let val = $('#show').html();
+
+           $('#show2').text('<b>Hi Aiki</b>'); // innerText
+
+           $('#show').attr('class', 'show');
+           $('#show').removeAttr('data-id');
+
+           $('#show').addClass('half');
+           $('#show').toggleClass('tog');
+
+            if ($('#show').hasClass('tog')){
+                $('#show').hasClass('tog');
+            }
+
+            $('input[name="name"]').val('Aiki');
+            console.log($('#userId').val());
+
+            let t_f = $('#tiktok').prop('checked');
+            console.log(t_f);
+
+            $('#dyeing').prop('checked',false);
+
+            let idx = $('#option').prop('selectedIndex')
+            console.log(idx);
+        });
+    </script>
+</head>
+
+<body>
+    <div id = "show" data-id ='first'></div>
+    <div id = "show2"></div>
+    <input type="text" name="name" id="name" value="아이키">
+    <input type="text" name="userId" id="userId" value="Aiki"><br>
+    <img class="card-img-top" src="../images/aiki.jpg" alt="..." /><br>
+    취미: <br>
+    <input type="checkbox" name="hobby" id="dance" value="춤" checked>춤<br>
+    <input type="checkbox" name="hobby" id="tiktok" value="틱톡" checked>틱톡<br>
+    <input type="checkbox" name="hobby" id="dyeing" value="염색" checked>염색<br>
+
+    <select name="" id="option">
+        <option value="">스우파</option>
+        <option value="">연신내</option>
+        <option value="" selected>Hook</option>
+    </select>
+
+    <div>Hello AIKI</div>
+
+</body>
+
+</html>

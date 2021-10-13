@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery/mod_dom.html</title>
+    <style>
+        #show{
+            border: 3px dotted pink;
+            padding: 5px
+        }
+    </style>
+    <script src = "./jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id = "show"></div>
+    <script>
+        //before, after
+        $('#show').after($('<p>Goodmornig</p>'))
+
+        //insert
+        $('<p>insertBefore</p>').insertBefore($('#show'))
+        //$('<p>insertAfter</p>').insertAfter($('#show'))
+
+        //append, prepend (to뒤가 붙여질 위치)
+        $('#show').append($('<p>inner</p>'))
+        $('#show').append($('<p>inner2</p>'))
+        $('#show').prepend($('<p>inner_prepend</p>'))
+        $('<p>prependTo</p>').prependTo($('#show'));
+        $('<p>appendTo</p>').appendTo($('#show'));
+
+        //clone, replace
+        let clone = $('#show').clone();
+        console.log(clone);
+        $('#show+p').after(clone); //선택한 요소 붙여넣기
+        //$(clone).empty(); //하위 요소 삭제하기
+        //$(clone).remove(); //요소자체를 삭제하기
+        $(clone).find('p:contains(prependTo)').replaceWith('<div />replace');
+        $('<div>replaceAll</div>').replaceAll($(clone).find('p:contains(inner2)'));
+
+        //wrap
+        //$(clone).find('p').wrap('<div />');
+        //$(clone).find('p').wrapAll('<div />'); //해당되는 요소를 모두 감싸기
+        $(clone).find('p').wrapInner('<div />'); //각각 외부에서 감싸기
+
+        
+
+
+    </script>
+</body>
+
+</html>
