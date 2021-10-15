@@ -32,9 +32,9 @@
 		}
 		
 		function setCookie(cname, cval){
-			const times = 1;
+			const times = 3;
 			const d = new Date();
-			d.setTime(d.getTime()+1000 * 30); //1초 = 1000
+			d.setTime(d.getTime()+1000 * 60); //1초 = 1000
 			document.cookie = cname + '=' + cval + '; expries=' + d.toUTCString + '; path=/';
 			//username=Choijuhee; expires=2021 10 14 12:00:00; path=/
 			//userid=ju; expires=2021 10 14 12:00:00; path=/
@@ -56,7 +56,8 @@
 		
 		//Login 버튼
 		btns[0].onclick = function(){
-			if(login('ju','1111')){
+			let info = login('choi', '1111');
+			if(info){
 				alert('성공');
 				console.log(info.name);
 				setCookie('username', info.name);
